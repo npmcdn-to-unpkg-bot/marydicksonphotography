@@ -1,0 +1,23 @@
+extends layout
+
+block append vars
+
+block prepend title
+  | #{ title + ' - '}
+
+block content
+  .hero
+    .row
+      .small-12.medium-4.columns
+        h1!= title
+      .small-12.medium-8.columns
+        blockquote!= quote
+          cite!= cite
+  .main
+    .row.gallery
+      each v, k in folder
+        if /\.jpg$/.test(k)
+          .small-12.medium-6.large-4
+            .photo: img(src=k, width=v.size.width, height=v.size.height)
+    
+    

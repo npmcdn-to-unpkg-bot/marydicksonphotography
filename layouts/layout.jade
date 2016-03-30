@@ -1,0 +1,93 @@
+doctype html
+block vars
+  - var body_class = null;
+
+html(lang='en')
+  head
+    block head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      title
+        block title
+          = locals.name
+      block css
+        link(rel='stylesheet', href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation-flex.min.css")
+        link(rel='stylesheet', href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css")
+        link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+        link(rel='stylesheet', href="/css/layout.css")
+  body
+    .off-canvas-wrapper
+      .off-canvas-wrapper-inner(data-off-canvas-wrapper="")
+        #offCanvasRight.off-canvas.position-right(data-off-canvas="", data-position="right")
+          ul.menu.vertical
+            li.menu-text Galleries
+            li: a(href="/engagement") Engagement
+            li: a(href="/weddings") Weddings
+            li: a(href="/maternity") Maternity
+            li: a(href="/family") Family
+          hr/
+          ul.menu.align-center(data-magellan="")
+            li: a(href="#contact-mary", data-toggle="offCanvasRight")
+              i.fa.fa-envelope
+            li: a(href="/")
+              i.fa.fa-home
+        .off-canvas-content(data-off-canvas-content="")
+            .title-bar.hide-for-large
+              .title-bar-left
+                span.title-bar-title Mary Dickson Photography
+              .title-bar-right
+                button.menu-icon(type="button", data-toggle="offCanvasRight")
+            .top-bar.show-for-large
+              .top-bar-left
+                ul.menu
+                  li.menu-text Mary Dickson Photography
+                  li: a(href="/engagement") Engagement
+                  li: a(href="/weddings") Weddings
+                  li: a(href="/maternity") Maternity
+                  li: a(href="/family") Family
+              .top-bar-right
+                ul.menu(data-magellan="")
+                  li: a(href="#contact-mary")
+                    i.fa.fa-envelope
+                  li: a(href="/")
+                    i.fa.fa-home
+            block content
+              h1 No Content
+            .contact-section
+              .row
+                .small-12.medium-4.columns
+                  h2#contact-mary(data-magellan-target="contact-mary", data-close="offCanvasRight") Contact Mary
+                  hr/
+                .small-12.medium-8.columns
+                  form.contact-form(data-abide="", novalidate="")
+                    .contact-form-fields
+                      label Name
+                        input(type="text", name="name", placehoder="Your Name", required="")
+                        span.form-error Name is required.
+                      label Email
+                        input(type="email", name="email", placehoder="you@domain.com", required="")
+                        span.form-error Email is required.
+                      label Phone
+                        input(type="tel", name="phone", placehoder="555-555-5555", pattern="\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d")
+                        span.form-error Phone must be formatted as 555-555-5555
+                      label Message
+                        textarea(name="message", placehoder="Your Message", required="")
+                        span.form-error A message is required.
+                      button.button(type="submit") Send
+                    .contact-form-error
+                      p.accent There was an error submitting the form.
+                      button.button(type="button", data-close="") Ok
+                    .contact-form-success
+                      p The request was sent successfully.
+                      button.button(type="button" data-close="") Ok
+                    .contact-form-submit
+                      p.accent: i.fa.fa-spinner.fa-spin
+                      p We are sending your request.
+          footer.footer All content &copy; Mary Dickson, 2016.
+    block js
+      script(type="text/javascript", src="https://code.jquery.com/jquery-2.2.1.min.js")
+      script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.js")
+      script(type="text/javascript", src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.js")
+      script(type="text/javascript", src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.js")
+      script(type="text/javascript", src='/script/script.js')

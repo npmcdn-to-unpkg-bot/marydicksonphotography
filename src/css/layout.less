@@ -1,0 +1,259 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans|Niconne|EB+Garamond|Material+Icons);
+@serif:'EB Garamond', serif;
+@sans-serif:'Alegreya Sans', sans-serif;
+@cursive:'Niconne', cursive;
+@icons:'Material Icons';
+@background-1:url(../img/cheap_diagonal_fabric.png);
+@background-2:url(../img/zwartevilt.png);
+@background-3:url(../img/stressed_linen.png);
+@background-4:url(../img/stardust.png);
+@background-5:url(../img/tweed.png);
+@accent-color:rgb(255,64,129);
+@accent-color-hover:rgb(200,54,129);
+@accent-color-muted:rgba(255,64,129, 0.1);
+@screen-medium:50em;
+@screen-large:75em;
+
+@keyframes sticky-on {
+  from {
+    transform: translate(0, -100%);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+// FOUNDATION OVERRIDES
+h1, h2, h3, h4, h5, h6, body {
+  font-family: serif;
+}
+
+.off-canvas-wrapper {
+  min-height:100%;
+}
+.off-canvas-wrapper-inner {
+  height:100%;
+}
+.off-canvas-content {
+  background:@background-1;
+}
+
+.off-canvas {
+  bottom:0;
+}
+
+.button {
+  font-size:1.1rem;
+  font-variant: small-caps;
+  padding-top:0.75em;
+  padding-bottom:0.75em;
+  background-color: @accent-color;
+  box-shadow:1px 1px 2px rgba(0,0,0,0.3);
+  &:hover, &:focus {
+    background-color: @accent-color-hover;
+  }
+}
+
+a {
+  color:@accent-color;
+  &:hover {
+    color: @accent-color-hover;
+  }
+}
+
+.title-bar {
+  z-index:1;
+  box-shadow:1px 1px 2px rgba(0,0,0,0.3);
+  .title-bar-title {
+    font-variant: small-caps;
+    min-width:16rem;
+  }
+  &.sticky {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    animation: sticky-on 0.3s ease-in-out;
+  }
+}
+
+.menu {
+  .menu-text {
+    font-variant: small-caps;
+  }
+}
+
+.top-bar {
+  font-size:1.2rem;
+  background:@background-3;
+  color:#eee;
+  box-shadow:1px 1px 2px rgba(0,0,0,0.3);
+  z-index:1;
+  ul {
+    background-color: inherit;
+  }
+  &.sticky {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    animation: sticky-on 0.3s ease-in-out;
+  }
+}
+
+.is-invalid-input:not(:focus) {
+  background-color:@accent-color-muted;
+}
+
+.form-error, .is-invalid-label {
+  color:@accent-color;
+}
+
+// CUSTOM STYLES
+
+html, body {
+  height:100%;
+  min-height: 100%;
+}
+
+img {
+  max-width:100%;
+}
+
+.section {
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+
+.hero {
+  &:extend(.section);
+  background:@background-4;
+  color:#eee;
+  font-size:1.2rem;
+}
+
+.gallery {
+  //width:100%;
+  .gallery-sizer {
+    //width: 100%;
+  }
+  .photo {
+    margin: 0.5rem;
+  }
+  @media screen and (min-width:40em) {
+    //.photo, .gallery-sizer { width: 50%; }
+  }
+}
+/*
+.gallery {
+  &:extend(.section);
+  column-width:20rem;
+  position:relative;
+  .photo {
+    opacity:0;
+    transition: opacity 0.3s ease-in-out;
+    display:none;
+    &.visible {
+      opacity:1;
+    }
+  }
+  .gallery-loading {
+    background:#eee;
+    position: absolute;
+    top:1rem;
+    left:0;
+    bottom:1rem;
+    right:0;
+    display:flex;
+    .gallery-loading-message {
+      font-size:2.3rem;
+      margin:auto;
+    }
+  }
+  &.loaded {
+    .gallery-loading {
+      display:none;
+    }
+    .photo {
+      display:inline-block;
+    }
+  }
+}
+*/
+
+.contact-section {
+  &:extend(.section);
+  box-shadow:inset 1px 1px 2px rgba(0,0,0,0.3);
+  background:#ccc;
+  h2 {
+    color:#555;
+  }
+  hr {
+    border-color:#bbb;
+  }
+}
+
+.contact-form {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  .button {
+    box-shadow:1px 1px 2px rgba(0,0,0,0.3);
+  }
+  .contact-form-fields {
+    transition: all 0.3s ease-in-out;
+    label {
+      font-size:1rem;
+      color:#666;
+    }
+  }
+  .contact-form-submit,
+  .contact-form-success,
+  .contact-form-error {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    transform: translate(100%, 0);
+    opacity:0;
+    transition: all 0.3s ease-in-out;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size:2.6rem;
+    color:#444;
+  }
+  &.submit .contact-form-fields,
+  &.error .contact-form-fields,
+  &.success .contact-form-fields {
+    transform: translate(-100%, 0);
+    opacity: 0;
+  }
+  &.submit .contact-form-submit,
+  &.error .contact-form-error,
+  &.success .contact-form-success {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.photo {
+  background:#eee;
+  padding:0.5rem;
+  box-shadow:1px 1px 2px rgba(0,0,0,0.3);
+  margin-bottom:0.75rem;
+  //display:inline-block;
+  > img {
+    display:block;
+  }
+}
+
+.footer {
+  &:extend(.section);
+  background:@background-3;
+  color:#999;
+  padding:1rem;
+  font-size:0.8rem;
+}

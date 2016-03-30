@@ -1,0 +1,32 @@
+
+extends layout
+
+block vars
+  - var body_class = 'home'
+
+block prepend title
+  | #{ title + ' - '}
+  
+block append css
+
+block content
+  .hero
+    .row
+      .small-12.columns!= contents
+    .row     
+      each x in ['engagement', 'weddings', 'maternity', 'family']
+        - var gallery = tree[x]
+        - var index = gallery['index.html']
+        - var preview = index.folder[index.preview]
+        .small-12.medium-6.columns
+          .media-object
+            .media-object-section(style="max-width:50%;")
+              .thumbnail
+                img(src=preview.path, style="max-width:100%;")
+            .media-object-section.main-section
+              h3!= index.title
+              a.button(href=index.path) View Gallery
+                
+            
+        
+          
