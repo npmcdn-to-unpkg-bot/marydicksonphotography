@@ -2,17 +2,18 @@
   "name": "mary-metalsmith",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.coffee",
   "repository": {
     "type": "git",
     "url": "https://github.com/brandondickson/marydicksonphotography"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "coffee index.coffee"
   },
   "author": "Brandon Dickson",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "async": "^1.5.2",
     "gm": "^1.21.1",
     "jade": "^1.11.0",
@@ -26,6 +27,6 @@
     "metalsmith-serve": "0.0.7",
     "metalsmith-watch": "^1.0.1",
     "pretty-error": "^2.0.0",
-    "prompt": "^1.0.0",
+    "prompt": "^1.0.0"
   }
 }
